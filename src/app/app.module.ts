@@ -14,17 +14,20 @@ import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/dat
 import { AngularFireModule } from 'angularfire2/angularfire2';
 
 import { environment } from '../environments/environment';
+import { MenuComponent } from 'app/menu/menu.component';
 
 
 const  appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
-  { path: 'categories', component: CategoriesComponent }
+  { path: 'categories', component: CategoriesComponent },
+  { path: 'menu', component: MenuComponent }
 ];
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    CategoriesComponent
+    CategoriesComponent,
+    MenuComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
