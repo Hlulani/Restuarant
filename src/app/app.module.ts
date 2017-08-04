@@ -36,8 +36,9 @@ const  appRoutes: Routes = [
     HttpModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
-  providers: [AngularFireDatabase],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
