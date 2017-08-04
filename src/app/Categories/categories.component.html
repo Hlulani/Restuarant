@@ -1,16 +1,20 @@
-<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
-<header class="header-global">
-  <div class="title">Menu Catagories</div>
-</header>
+<div class="container">
+<div class="row">
+  <div class="heading space-div">
+    Menu Catagories
+    </div>
+ </div>
+
 <section class="section-holder">
   <article>
     <div class="lead-text">Choose a category</div>
   </article>
   <section class="text" *ngFor="let item of items | async">
-    <article class="catago-item" [ngStyle]="{background: 'url('+item.image+') no-repeat center'}">
-      <section class="name">
+    <article class="catagories-item" [ngStyle]="{background: 'url('+item.image+') no-repeat center'}">
+      <section (click)="selectCategories()" class="name">
         {{item.name}}
       </section>
     </article>
   </section>
 </section>
+</div>

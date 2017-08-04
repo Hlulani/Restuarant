@@ -1,27 +1,25 @@
 import { TestBed, async } from '@angular/core/testing';
-import { AngularFireDatabase } from 'angularfire2/database';
-import { CategoriesComponent } from './categories.component';
+
+import {  MenuComponent } from './menu.component';
 import { ComponentFixture } from '@angular/core/testing';
 import { Router } from '@angular/router';
-import { AngularFireAuth } from 'angularfire2/auth';
-import 'rxjs/add/observable/of';
-import { Observable } from 'rxjs/Observable';
+import { AngularFireDatabase } from 'angularfire2/database';
 
-describe('categories component', () => {
-  let component: CategoriesComponent;
-  let fixture: ComponentFixture<CategoriesComponent>;
+describe('menu component', () => {
+  let component: MenuComponent;
+  let fixture: ComponentFixture<MenuComponent>;
   const mockRouter = {
     navigate: jasmine.createSpy('navigate')
   };
 
-  const mockFirebaseDatabase = {
+   const mockFirebaseDatabase = {
     list: jasmine.createSpy('list')
   };
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [],
-      declarations: [CategoriesComponent],
+      declarations: [MenuComponent],
       providers: [
         { provide: Router, useValue: mockRouter },
         { provide: AngularFireDatabase, useValue: mockFirebaseDatabase }
@@ -30,10 +28,9 @@ describe('categories component', () => {
   }));
 
 beforeEach(() => {
-    fixture = TestBed.createComponent(CategoriesComponent);
-    fixture.detectChanges();
+    fixture = TestBed.createComponent(MenuComponent);
     component = fixture.componentInstance;
-
+    fixture.detectChanges();
   });
 
   it('should create a component', () => {

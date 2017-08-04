@@ -7,16 +7,7 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-whitelist": {
-            "PACKAGE_NAME": "com.app.restuarant"
-        },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.app.restuarant"
-        },
         "cordova-plugin-console": {
-            "PACKAGE_NAME": "com.app.restuarant"
-        },
-        "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.app.restuarant"
         },
         "cordova-plugin-crosswalk-webview": {
@@ -27,10 +18,19 @@
             "XWALK_MULTIPLEAPK": "true",
             "PACKAGE_NAME": "com.app.restuarant"
         },
-        "cordova-plugin-inappbrowser": {
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.app.restuarant"
         },
         "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.app.restuarant"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.app.restuarant"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "com.app.restuarant"
+        },
+        "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.app.restuarant"
         }
     },

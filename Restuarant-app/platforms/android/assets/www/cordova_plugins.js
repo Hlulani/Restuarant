@@ -9,23 +9,6 @@ module.exports = [
         ]
     },
     {
-        "id": "cordova-plugin-statusbar.statusbar",
-        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
-        "pluginId": "cordova-plugin-statusbar",
-        "clobbers": [
-            "window.StatusBar"
-        ]
-    },
-    {
-        "id": "cordova-plugin-inappbrowser.inappbrowser",
-        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
-        "pluginId": "cordova-plugin-inappbrowser",
-        "clobbers": [
-            "cordova.InAppBrowser.open",
-            "window.open"
-        ]
-    },
-    {
         "id": "cordova-plugin-file.DirectoryEntry",
         "file": "plugins/cordova-plugin-file/www/DirectoryEntry.js",
         "pluginId": "cordova-plugin-file",
@@ -197,19 +180,36 @@ module.exports = [
             "cordova"
         ],
         "runs": true
+    },
+    {
+        "id": "cordova-plugin-inappbrowser.inappbrowser",
+        "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+        "pluginId": "cordova-plugin-inappbrowser",
+        "clobbers": [
+            "cordova.InAppBrowser.open",
+            "window.open"
+        ]
+    },
+    {
+        "id": "cordova-plugin-statusbar.statusbar",
+        "file": "plugins/cordova-plugin-statusbar/www/statusbar.js",
+        "pluginId": "cordova-plugin-statusbar",
+        "clobbers": [
+            "window.StatusBar"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
-    "cordova-plugin-whitelist": "1.3.2",
-    "cordova-plugin-device": "1.1.6",
-    "cordova-plugin-console": "1.0.7",
-    "cordova-plugin-statusbar": "2.2.3",
-    "cordova-plugin-crosswalk-webview": "2.3.0",
-    "cordova-plugin-inappbrowser": "1.7.1",
     "cordova-plugin-compat": "1.1.0",
-    "cordova-plugin-file": "4.3.3"
+    "cordova-plugin-console": "1.0.7",
+    "cordova-plugin-crosswalk-webview": "2.3.0",
+    "cordova-plugin-device": "1.1.6",
+    "cordova-plugin-file": "4.3.3",
+    "cordova-plugin-inappbrowser": "1.7.1",
+    "cordova-plugin-statusbar": "2.2.3",
+    "cordova-plugin-whitelist": "1.3.2"
 };
 // BOTTOM OF METADATA
 });
