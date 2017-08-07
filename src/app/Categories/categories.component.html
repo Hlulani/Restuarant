@@ -1,20 +1,23 @@
 <div class="container">
-<div class="row">
-  <div class="heading space-div">
-    Menu Catagories
+  <div class="row">
+    <div class="heading space-div header-global">
+      <div class="thing back" (click)="onBackClicked()">
+        <i class="material-icons" style="font-size: 34px">arrow_back</i>
+      </div>
+      <span style="font-size:18px;"> Menu Catagories</span>
     </div>
- </div>
+  </div>
 
-<section class="section-holder">
-  <article>
-    <div class="lead-text">Choose a category</div>
-  </article>
-  <section class="text" *ngFor="let item of items | async">
-    <article class="catagories-item" [ngStyle]="{background: 'url('+item.image+') no-repeat center'}">
-      <section (click)="selectCategories()" class="name">
-        {{item.name}}
-      </section>
+  <section class="section-holder">
+    <article>
+      <div class="lead-text">Choose a category</div>
     </article>
+    <section class="text" *ngFor="let item of items | async">
+      <article class="catagories-item" [ngStyle]="{background: 'url('+item.image+') no-repeat center'}">
+        <section (click)="selectCategories()" class="name">
+          {{item.name}}
+        </section>
+      </article>
+    </section>
   </section>
-</section>
 </div>
