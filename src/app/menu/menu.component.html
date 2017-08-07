@@ -6,18 +6,24 @@
       </div>
       <span style="font-size:18px;">For all your orders here</span>
     </div>
+
   </div>
 
-  <section style="margin-top:70px;">
-    <div class="row" *ngFor="let menu of menus | async" style="margin-bottom:10px;">
-      <div class="col-sm-3">
-        <img class="img-circle" [attr.src]="menu.image" alt=" Generic placeholder image " width="100% " height="140 " style="margin-bottom:10px; ">
-        <h2>{{menu.name}}</h2>
-        <section style="margin-left:5px; ">
-          <p>{{menu.desc}}</p>
-          <div><strong>Price:</strong> {{menu.price}} .</div>
-        </section>
-        <div style="font-size:1000; color:rgba(0,0,0,.4); overflow:hidden; white-space:nowrap ">_________________________________________________________</div>
-      </div>
+  <div class="row">
+    <div class="container-fluid"></div>
+    <div class="col-sm-3" *ngFor="let menu of menus | async">
+      <div><img [src]="menu.image" class="img-thumbnail" alt="Generic placeholder image" /></div>
+      <h2>{{ menu.name}}</h2>
+      <p class="text-muted">{{menu.description}}</p>
+
+      <p class="text-muted"><strong>{{menu.rand}}</strong><strong>{{menu.price}}</strong></p>
+      <!--<button type="button" class="btn btn-default">order</button>-->
+
     </div>
-  </section>
+    <div class="row subtext">
+    </div>
+
+
+
+  </div>
+</div>
