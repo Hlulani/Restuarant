@@ -1,0 +1,22 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="heading space-div header-global">
+      <div class="thing back" (click)="onBackClicked()">
+        <i class="material-icons" style="font-size: 34px">arrow_back</i>
+      </div>
+      <span style="font-size:18px;">For all your orders here</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="container-fluid"></div>
+    <div class="col-sm-3" *ngFor="let menu of menus | async">
+      <div><img [src]="menu.image" class="img-thumbnail" alt="Generic placeholder image" /></div>
+      <h2>{{ menu.name}}</h2>
+      <p class="text-muted">{{menu.description}}</p>
+      <p class="text-muted"><strong>{{menu.rand}}</strong><strong>{{menu.price}}</strong></p>
+      <div class="button-global  btn btn-lg btn-primary">Add to order</div>
+    </div>
+    <div class="row subtext">
+    </div>
+  </div>
+</div>

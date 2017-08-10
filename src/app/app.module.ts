@@ -4,30 +4,39 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
-import {RouterModule, Routes} from '@angular/router';
-import {AppRoutingModule} from './app-routing.module';
-import { WelcomeComponent } from 'app/welcome/welcome.component';
-import { Component } from '@angular/core' ;
-import { CategoriesComponent } from 'app/Categories/categories.component';
+import { RouterModule, Routes } from '@angular/router';
+import { AppRoutingModule } from './app-routing.module';
+import { WelcomeComponent } from './components//welcome/welcome.component';
+import { Component } from '@angular/core';
+import { CategoriesComponent } from './components/Categories/categories.component';
 
 import { AngularFireDatabaseModule, AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2/angularfire2';
 
 import { environment } from '../environments/environment';
-import { MenuComponent } from 'app/menu/menu.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { MenuService } from './services/menu.service';
+import { AddShoppingCartComponent } from './components/shopping-cart/add-shopping-cart/add-shopping-cart.component';
+import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 
 
-const  appRoutes: Routes = [
+
+const appRoutes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'categories', component: CategoriesComponent },
-  { path: 'menu', component: MenuComponent }
+  { path: 'menu', component: MenuComponent },
+  { path: 'add-shopping-cart', component: AddShoppingCartComponent },
+  { path: 'shopping-cart', component: ShoppingCartComponent }
+
 ];
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
     CategoriesComponent,
-    MenuComponent
+    MenuComponent,
+    AddShoppingCartComponent,
+    ShoppingCartComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -38,7 +47,7 @@ const  appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
-  providers: [],
+  providers: [MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
