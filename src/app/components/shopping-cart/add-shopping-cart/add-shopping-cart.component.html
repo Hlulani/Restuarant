@@ -6,24 +6,17 @@
       </div>
       <span style="font-size:18px;">For all your orders here</span>
     </div>
-
   </div>
-
   <div class="row">
     <div class="container-fluid"></div>
     <div class="col-sm-3" *ngFor="let menu of menus | async">
       <div><img [src]="menu.image" class="img-thumbnail" alt="Generic placeholder image" /></div>
       <h2>{{ menu.name}}</h2>
       <p class="text-muted">{{menu.description}}</p>
-
       <p class="text-muted"><strong>{{menu.rand}}</strong><strong>{{menu.price}}</strong></p>
-      <!--<button type="button" class="btn btn-default">order</button>-->
-
+      <div class="button-global  btn btn-lg btn-primary" (click)="addToCart(menu)">Add to cart</div>
     </div>
     <div class="row subtext">
     </div>
-
-
-
   </div>
 </div>
