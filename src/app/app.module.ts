@@ -18,6 +18,7 @@ import { MenuComponent } from './components/menu/menu.component';
 import { MenuService } from './services/menu.service';
 import { AddShoppingCartComponent } from './components/shopping-cart/add-shopping-cart/add-shopping-cart.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { CompleteOrderComponent } from './components/complete-order/complete-order.component';
 
 
 
@@ -26,7 +27,8 @@ const appRoutes: Routes = [
   { path: 'categories', component: CategoriesComponent },
   { path: 'menu', component: MenuComponent },
   { path: 'add-shopping-cart', component: AddShoppingCartComponent },
-  { path: 'shopping-cart', component: ShoppingCartComponent }
+  { path: 'shopping-cart', component: ShoppingCartComponent },
+  { path: 'complete-order', component: CompleteOrderComponent }
 
 ];
 @NgModule({
@@ -36,7 +38,8 @@ const appRoutes: Routes = [
     CategoriesComponent,
     MenuComponent,
     AddShoppingCartComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    CompleteOrderComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

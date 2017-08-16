@@ -15,9 +15,15 @@ export class AddShoppingCartComponent {
     this.menus = db.list('resturents/hrll3/menus/Beverages');
 
   }
+  onBackClicked() {
+    this.router.navigate(['/categories']);
+  }
   addToCart(menu: any) {
     console.log(menu);
     this.menuServices.add(menu);
+  }
+  cartProceed() {
+    this.router.navigate(['/shopping-cart']);
   }
 
 

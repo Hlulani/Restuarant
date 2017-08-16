@@ -17,6 +17,9 @@ export class CategoriesComponent {
   }
 
   selectCategories() {
+    this.router.navigate(['/add-shopping-cart']);
+  }
+  onBackClicked() {
     this.router.navigate(['/menu']);
   }
 }

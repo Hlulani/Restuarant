@@ -11,6 +11,10 @@ export class MenuComponent {
   constructor(db: AngularFireDatabase, private router: Router) {
     this.menus = db.list('resturents/hrll3/menus/Beverages');
   }
+
+  onBackClicked() {
+    this.router.navigate(['/categories']);
+  }
 }
 
 

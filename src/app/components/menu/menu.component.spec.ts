@@ -1,6 +1,6 @@
 import { TestBed, async } from '@angular/core/testing';
 
-import {  MenuComponent } from './menu.component';
+import { MenuComponent } from './menu.component';
 import { ComponentFixture } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { AngularFireDatabase } from 'angularfire2/database';
@@ -12,7 +12,7 @@ describe('menu component', () => {
     navigate: jasmine.createSpy('navigate')
   };
 
-   const mockFirebaseDatabase = {
+  const mockFirebaseDatabase = {
     list: jasmine.createSpy('list')
   };
 
@@ -27,7 +27,7 @@ describe('menu component', () => {
     }).compileComponents();
   }));
 
-beforeEach(() => {
+  beforeEach(() => {
     fixture = TestBed.createComponent(MenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
