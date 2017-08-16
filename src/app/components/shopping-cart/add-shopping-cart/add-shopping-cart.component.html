@@ -4,7 +4,9 @@
       <div class="thing back" (click)="onBackClicked()">
         <i class="material-icons" style="font-size: 34px">arrow_back</i>
       </div>
-      <span style="font-size:18px;">For all your orders here</span>
+      <span class="space-div text-fonts ">For all your orders here</span>
+      <img (click)="cartProceed()" src="../../../../assets/Shopping-cart-icon.png" class="img-thumbnail image-size" alt="Generic placeholder image"
+      />
     </div>
   </div>
   <div class="row">
@@ -14,7 +16,7 @@
       <h2>{{ menu.name}}</h2>
       <p class="text-muted">{{menu.description}}</p>
       <p class="text-muted"><strong>{{menu.rand}}</strong><strong>{{menu.price}}</strong></p>
-      <div class="button-global  btn btn-lg btn-primary" (click)="addToCart(menu)">Add to cart</div>
+      <div id="#add-to-cart" class="button-global  btn btn-lg btn-primary" (click)="addToCart(menu)">Add to cart</div>
     </div>
     <div class="row subtext">
     </div>

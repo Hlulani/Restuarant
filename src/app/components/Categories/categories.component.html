@@ -13,7 +13,7 @@
       <div class="lead-text">Choose a category</div>
     </article>
     <section class="text" *ngFor="let item of items | async">
-      <article class="catagories-item" [ngStyle]="{background: 'url('+item.image+') no-repeat center'}">
+      <article id="#category-item" class="catagories-item" [ngStyle]="{background: 'url('+item.image+') no-repeat center'}">
         <section (click)="selectCategories()" class="name">
           {{item.name}}
         </section>

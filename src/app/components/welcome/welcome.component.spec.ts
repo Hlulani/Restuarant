@@ -1,8 +1,8 @@
 
-import { async, fakeAsync, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed, fakeAsync } from '@angular/core/testing';
+import { DebugElement } from '@angular/core';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { WelcomeComponent } from './welcome.component';
-import { ComponentFixture } from '@angular/core/testing';
 import { Router } from '@angular/router';
 import { AngularFireAuth } from 'angularfire2/auth';
 import 'rxjs/add/observable/of';
@@ -13,9 +13,9 @@ import { By } from '@angular/platform-browser';
 describe('welcome component', () => {
   let component: WelcomeComponent;
   let fixture: ComponentFixture<WelcomeComponent>;
-  let nextButton: HTMLBodyElement;
+  let nextButton: DebugElement;
   const mockRouter = {
-    navigate: jasmine.createSpy('navigate')
+    navigate: jasmine.createSpy('/categories')
   };
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -27,7 +27,7 @@ describe('welcome component', () => {
     }).compileComponents();
   }));
 
-beforeEach(() => {
+  beforeEach(() => {
     fixture = TestBed.createComponent(WelcomeComponent);
     fixture.detectChanges();
     component = fixture.componentInstance;
@@ -39,14 +39,15 @@ beforeEach(() => {
 
   describe('when the place holder button pressed', () => {
     beforeEach(() => {
-      nextButton = fixture.debugElement.query(By.css('#place-order')).nativeElement;
-      nextButton.click();
-       fixture.detectChanges();
+      nextButton = fixture.debugElement.query(By.css('#place-order'));
+      fixture.detectChanges();
     });
+  });
 
-    it('should route to the categories component', fakeAsync(() => {
-      expect(mockRouter.navigate).toHaveBeenCalledWith(['/categories']);
-    }));
+  it('should route to the categories component', fakeAsync(() => {
+    component.placeOrder();
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/categories']);
+  }));
 });
 
-});
+
