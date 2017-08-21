@@ -4,6 +4,8 @@ import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/databa
 import { MenuService } from 'app/services/menu.service';
 import { Menu } from 'app/models/Menu';
 import 'rxjs/add/operator/map';
+import { Observable } from "rxjs/Observable";
+import { Subject } from "rxjs/Subject";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -16,31 +18,46 @@ export class ShoppingCartComponent implements OnInit {
   changeDetectorRef: any;
   public totalPrice: number;
   public totalQuantity: number;
-  menu: any;
-  menus: FirebaseListObservable<any[]>;
+  menu: any[];
+  menus: any[];
   constructor(db: AngularFireDatabase, private router: Router, private menuServices: MenuService) {
-    this.menus = db.list('resturents/hrll3/menus/Beverages');
+    menuServices.cartObserver.subscribe((cart) => {
+      this.menus = cart;
+      this.totalPrice = cart.reduce((c, menu) => {
+        return c + menu.price;
+      }, 0);
+    });
+    menuServices.cartObserver.next(menuServices.cart);
   }
 
   ngOnInit() {
-    this.menu = this.menuServices.getMenus();
     console.log(this.menu);
   }
   onBackClicked() {
     this.router.navigate(['/add-shopping-cart']);
   }
-  getItems() {
-    this.menus.subscribe(queriedItems => {
-      console.log(queriedItems);
-    });
-  }
-  removeItem() {
-    console.log('deleted!');
-    this.menus.remove().then(_ => console.log('deleted!'));
-  }
 
+  deleteProduct(menu) {
+    this.menuServices.deleteProductFromCart(menu);
+  }
   proceed() {
     this.router.navigate(['/complete-order']);
   }
+  getTotalPrice() {
+    const totalCost: Array<number> = [];
+    const quantity: Array<number> = [];
+    let intPrice: number;
+    let intQuantity: number;
+    this.menus.forEach((item: any) => {
+      intPrice = item.price;
+      intQuantity = item.quantity;
+      totalCost.push(intPrice);
+      quantity.push(intQuantity);
+    });
+
+    this.totalPrice = totalCost.length + 1;
+    return this.totalPrice;
+  }
+
 
 }
