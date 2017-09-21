@@ -19,6 +19,8 @@ import { MenuService } from './services/menu.service';
 import { AddShoppingCartComponent } from './components/shopping-cart/add-shopping-cart/add-shopping-cart.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { CompleteOrderComponent } from './components/complete-order/complete-order.component';
+import { OrderComponent } from 'app/components/shopping-cart/order.component';
+import { OrderService } from 'app/services/order.service';
 
 
 
@@ -39,7 +41,8 @@ const appRoutes: Routes = [
     MenuComponent,
     AddShoppingCartComponent,
     ShoppingCartComponent,
-    CompleteOrderComponent
+    CompleteOrderComponent,
+    OrderComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -50,7 +53,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
-  providers: [MenuService],
+  providers: [MenuService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

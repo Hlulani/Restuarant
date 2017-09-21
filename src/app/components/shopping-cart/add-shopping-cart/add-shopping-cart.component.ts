@@ -26,6 +26,7 @@ export class AddShoppingCartComponent {
   }
   addToCart(menu: any) {
     this.menuServices.add(menu);
+    console.log("Test" + this.menus);
   }
   cartProceed() {
     this.router.navigate(['/shopping-cart']);

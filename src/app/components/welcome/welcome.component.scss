@@ -1,6 +1,5 @@
 .col-center-block {
-    padding: 40px;
-
+  padding: 40px;
   text-align: center;
 }
 
@@ -9,4 +8,18 @@
   margin-left: -15px;
   margin-top: 0px;
   margin-bottom: 0px;
+}
+
+.space-margin {
+  margin-bottom: 40px;
+}
+
+.complete-height {
+  height: 100%;
+  background-image: url("../../../assets/bg.jpg");
+}
+
+.centering {
+  float: none;
+  margin: 0 auto;
 }

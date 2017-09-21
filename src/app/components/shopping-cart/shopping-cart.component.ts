@@ -6,6 +6,7 @@ import { Menu } from 'app/models/Menu';
 import 'rxjs/add/operator/map';
 import { Observable } from "rxjs/Observable";
 import { Subject } from "rxjs/Subject";
+import { OrderService } from "app/services/order.service";
 
 @Component({
   selector: 'app-shopping-cart',
@@ -20,7 +21,11 @@ export class ShoppingCartComponent implements OnInit {
   public totalQuantity: number;
   menu: any[];
   menus: any[];
-  constructor(db: AngularFireDatabase, private router: Router, private menuServices: MenuService) {
+  orders: any;
+  order: any;
+
+  constructor(db: AngularFireDatabase, private router: Router, private menuServices: MenuService,
+    private orderService: OrderService) {
     menuServices.cartObserver.subscribe((cart) => {
       this.menus = cart;
       this.totalPrice = cart.reduce((c, menu) => {
@@ -41,7 +46,11 @@ export class ShoppingCartComponent implements OnInit {
     this.menuServices.deleteProductFromCart(menu);
   }
   proceed() {
-    this.router.navigate(['/complete-order']);
+
+    console.log('order tests')
+    this.orderService.completeOrder(this.order);
+    console.log('order tests1' + this.order);
+
   }
   getTotalPrice() {
     const totalCost: Array<number> = [];

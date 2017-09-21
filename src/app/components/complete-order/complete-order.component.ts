@@ -1,5 +1,6 @@
 
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-complete-order',
@@ -9,4 +10,12 @@ import { Component } from '@angular/core';
 
 export class CompleteOrderComponent {
 
+
+  constructor(private router: Router) {
+
+  }
+
+  closeButton() {
+    this.router.navigate(['/']);
+  }
 }
