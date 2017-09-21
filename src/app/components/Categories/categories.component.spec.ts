@@ -42,9 +42,9 @@ describe('Categories Component', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should navigate to menu component', () => {
+  it('should navigate to add shopping cart component', () => {
     component.selectCategories();
-    expect(mockRouter.navigate).toHaveBeenCalledWith(['/menu']);
+    expect(mockRouter.navigate).toHaveBeenCalledWith(['/add-shopping-cart']);
   });
 });
 

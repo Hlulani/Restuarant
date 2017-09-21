@@ -1,36 +1,34 @@
 import { Http, Headers } from '@angular/http';
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { FirebaseListObservable, AngularFireDatabase } from "angularfire2/database";
-import { Observable } from "rxjs/Observable";
+import { FirebaseListObservable, AngularFireDatabase } from 'angularfire2/database';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class MenuService {
-
-  // private menus: any[];
   menus: FirebaseListObservable<any[]>;
   cart: any[];
   cartObserver: Subject<any[]>;
   cartObservable: Observable<any[]>;
 
-  private productAddedSource = new Subject<any>();
-
-
-  productAdded$ = this.productAddedSource.asObservable();
+  menuObserver: BehaviorSubject<any>;
 
   constructor(db: AngularFireDatabase) {
-    this.menus = db.list('resturents/hrll3/menus/Beverages');
+    this.menuObserver = new BehaviorSubject(null);
+
+    db.list('resturents/hrll3/menus/Beverages').subscribe(c => this.menuObserver.next(c));
+
     this.cart = [];
     this.cartObserver = new Subject<any[]>();
     this.cartObservable = Observable.create(this.cart);
   }
 
-  getMenus() {
-    return this.menus;
+  getMenus(): Observable<any> {
+    return this.menuObserver;
   }
 
   add(menu: any) {
-    // this.cart
     this.cart.push(menu);
     this.cartObserver.next(this.cart);
   }

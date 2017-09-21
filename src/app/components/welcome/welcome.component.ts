@@ -9,8 +9,7 @@ import { Router } from '@angular/router';
 export class WelcomeComponent {
   constructor(private router: Router) {
   }
-
   placeOrder() {
-    this.router.navigate (['/categories']);
+    this.router.navigate(['/categories']);
   }
 }
