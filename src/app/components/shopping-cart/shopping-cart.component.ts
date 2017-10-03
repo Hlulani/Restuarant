@@ -22,7 +22,7 @@ export class ShoppingCartComponent implements OnInit {
   menu: any[];
   menus: any[];
   orders: any;
-  order: any;
+  order: any[];
 
   constructor(db: AngularFireDatabase, private router: Router, private menuServices: MenuService,
     private orderService: OrderService) {
@@ -37,6 +37,7 @@ export class ShoppingCartComponent implements OnInit {
 
   ngOnInit() {
     console.log(this.menu);
+    console.log(this.order);
   }
   onBackClicked() {
     this.router.navigate(['/add-shopping-cart']);
@@ -45,13 +46,12 @@ export class ShoppingCartComponent implements OnInit {
   deleteProduct(menu) {
     this.menuServices.deleteProductFromCart(menu);
   }
-  proceed() {
-
-    console.log('order tests')
-    this.orderService.completeOrder(this.order);
-    console.log('order tests1' + this.order);
+  proceed(menus: any) {
+    this.orderService.create(menus);
+    this.router.navigate(['/add-shopping-cart']);
 
   }
+
   getTotalPrice() {
     const totalCost: Array<number> = [];
     const quantity: Array<number> = [];
