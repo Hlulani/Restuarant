@@ -21,6 +21,10 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { CompleteOrderComponent } from './components/complete-order/complete-order.component';
 import { OrderComponent } from 'app/components/shopping-cart/order.component';
 import { OrderService } from 'app/services/order.service';
+import { AdminWelcomeComponent } from 'app/components/admin/admin-welcome/admin-welcome.component';
+import { AdminDetailsComponent } from 'app/components/admin/admin-details/admin-details.component';
+import { ProcessingOrdersComponent } from 'app/components/admin/processing-orders/processing-orders.component';
+import { ProcessOrderService } from "app/services/process-orders.service";
 
 
 
@@ -30,7 +34,11 @@ const appRoutes: Routes = [
   { path: 'menu', component: MenuComponent },
   { path: 'add-shopping-cart', component: AddShoppingCartComponent },
   { path: 'shopping-cart', component: ShoppingCartComponent },
-  { path: 'complete-order', component: CompleteOrderComponent }
+  { path: 'complete-order', component: CompleteOrderComponent },
+  { path: 'admin-welcome', component: AdminWelcomeComponent },
+  { path: 'admin-details', component: AdminDetailsComponent },
+  { path: 'processing-orders', component: ProcessingOrdersComponent }
+
 
 ];
 @NgModule({
@@ -42,7 +50,10 @@ const appRoutes: Routes = [
     AddShoppingCartComponent,
     ShoppingCartComponent,
     CompleteOrderComponent,
-    OrderComponent
+    OrderComponent,
+    AdminWelcomeComponent,
+    AdminDetailsComponent,
+    ProcessingOrdersComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
@@ -53,7 +64,7 @@ const appRoutes: Routes = [
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
-  providers: [MenuService, OrderService],
+  providers: [MenuService, OrderService, ProcessOrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
