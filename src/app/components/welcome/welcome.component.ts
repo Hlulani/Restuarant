@@ -12,4 +12,8 @@ export class WelcomeComponent {
   placeOrder() {
     this.router.navigate(['/categories']);
   }
+
+  goToAdmin() {
+    this.router.navigate(['/admin-welcome']);
+  }
 }
