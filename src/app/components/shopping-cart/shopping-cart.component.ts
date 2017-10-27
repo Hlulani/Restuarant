@@ -48,7 +48,7 @@ export class ShoppingCartComponent implements OnInit {
   }
   proceed(menus: any) {
     this.orderService.create(menus);
-    this.router.navigate(['/admin-welcome']);
+    this.router.navigate(['/complete-order']);
 
   }
 

@@ -26,7 +26,6 @@ export class ProcessingOrdersComponent {
     this.router.navigate(['']);
   }
   deleteProduct(order) {
-
     this.processOrderService.deleteProductFromOrder(order);
   }
 }
